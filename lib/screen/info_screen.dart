@@ -62,6 +62,7 @@ class InfoScreen extends StatelessWidget {
                       Text('RED Company'),
                       SizedBox(height: 5),
                       Text('Eggso Entertainment'),
+                      SizedBox(height: 10),
                     ],
                   ),
                 ),

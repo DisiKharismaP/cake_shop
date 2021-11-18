@@ -62,8 +62,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
+        body: Container(
           color: Colors.pink[50],
           child: cartList.length > 0
               ? Padding(
@@ -130,7 +129,6 @@ class _CartScreenState extends State<CartScreen> {
           )
               : Center(child: Text('Empty cart, please add some item')),
         ),
-      ),
     );
   }
 

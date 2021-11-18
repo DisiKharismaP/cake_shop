@@ -104,6 +104,7 @@ class CheckoutScreen extends StatelessWidget {
                                   fontSize: 16),
                             )),
                       ),
+                      SizedBox(height: 10),
                     ],
                   ),
                 ),

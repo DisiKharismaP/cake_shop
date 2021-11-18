@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15),
                             child: Container(
                               padding: EdgeInsets.all(2),
-                              child: Image.asset(cake.cakeImage, width: 300, height: 130,),
+                              child: Image.asset(cake.cakeImage, width: 300, height: 120,),
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: NetworkImage(cake.cakeBackground),
