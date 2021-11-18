@@ -62,72 +62,74 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
       ),
-      body: Container(
-        color: Colors.pink[50],
-        child: cartList.length > 0
-            ? Padding(
-          padding:
-          const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              var cake = findCake(cartList[index]);
-              return Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10)),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.pink[50],
+          child: cartList.length > 0
+              ? Padding(
+            padding:
+            const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                var cake = findCake(cartList[index]);
+                return Card(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10)),
+                          child: Container(
+                            child: Image.asset(cake.cakeImage),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(cake.cakeBackground),
+                                  fit: BoxFit.cover),),
+                          ),
+                        ),
+                      ),
+                      Expanded(
                         child: Container(
-                          child: Image.asset(cake.cakeImage),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(cake.cakeBackground),
-                                fit: BoxFit.cover),),
+                          margin: EdgeInsets.only(left: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                cake.cakeName,
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              Text(rupiahCurrencyFormat
+                                  .format(cake.cakePrice))
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(left: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              cake.cakeName,
-                              style: TextStyle(fontSize: 18),
-                            ),
-                            SizedBox(
-                              height: 16,
-                            ),
-                            Text(rupiahCurrencyFormat
-                                .format(cake.cakePrice))
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: IconButton(
-                          onPressed: () {
-                            deleteItemCart(cake.cakeId);
-                          },
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.grey,
-                          )),
-                    )
-                  ],
-                ),
-              );
-            },
-            itemCount: cartList.length,
-          ),
-        )
-            : Center(child: Text('Empty cart, please add some item')),
+                      Expanded(
+                        child: IconButton(
+                            onPressed: () {
+                              deleteItemCart(cake.cakeId);
+                            },
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.grey,
+                            )),
+                      )
+                    ],
+                  ),
+                );
+              },
+              itemCount: cartList.length,
+            ),
+          )
+              : Center(child: Text('Empty cart, please add some item')),
+        ),
       ),
     );
   }
