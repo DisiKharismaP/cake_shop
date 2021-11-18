@@ -26,15 +26,17 @@ class CheckoutScreen extends StatelessWidget {
           style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          color: Color.fromARGB(255, 248, 227, 236),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Color.fromARGB(255, 248, 227, 236),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.only(top: 20.0, right: 20, left: 20),
+                  padding: EdgeInsets.only(top: 20.0, right: 20, left: 20, bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -101,16 +103,15 @@ class CheckoutScreen extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 16),
+                                  fontSize: 16,),
                             )),
                       ),
-                      SizedBox(height: 10),
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
 

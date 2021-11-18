@@ -17,13 +17,15 @@ class DonePaymentScreen extends StatelessWidget {
           style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          color: Colors.pink[50],
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Colors.pink[50],
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 100.0, horizontal: 30.0),
                   child: Column(
@@ -60,8 +62,8 @@ class DonePaymentScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
 
